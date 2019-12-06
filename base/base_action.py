@@ -37,40 +37,40 @@ class BaseAction:
     def press_enter(self):
         self.driver.press_keycode(66)
 
-    def is_toast_exist(self,message):
+    def is_toast_exist(self, message):
         """
         根据 部分内容，判断toast是否存在
         :param message: 部分内容
         :return: 是否存在
         """
-        message_xpath = By.XPATH, "//*[contains(@text,'%s')]"  % message
+        message_xpath = By.XPATH, "//*[contains(@text,'%s')]" % message
         try:
-            self.find_element(message_xpath,5,0.1)
+            self.find_element(message_xpath, 5, 0.1)
             return True
         except TimeoutException:
             return False
 
-    def get_toast_text(self,message):
+
+    def get_toast_text(self, message):
         """
         根据部分内容 获取toast上的所有内容
         :param message:部分内容
         :return:所有内容
         """
         if self.is_toast_exist(message):
-            message_xpath = By.XPATH,  "//*[contains(@text,'%s')]"  % message
-            return self.find_element(message_xpath,5,0.1).text
+            message_xpath = By.XPATH,  "//*[contains(@text,'%s')]" % message
+            return self.find_element(message_xpath, 5, 0.1).text
         else:
             raise Exception("toast未出现，请检查参数是否正确或toast有有没有出现在屏幕上")
 
-
-    def is_feature_exist(self,feature):
+    def is_feature_exist(self, feature):
         try:
             self.find_element(feature)
             return True
         except TimeoutException:
             return False
 
-    def scroll_page_one_time(self,direction="up"):
+    def scroll_page_one_time(self, direction="up"):
         """
         滑动一次屏幕
         :param direction: 方向

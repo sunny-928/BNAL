@@ -33,7 +33,7 @@ class SearchPage(BaseAction):
     # 判断搜索的关键字是否存在
     @allure.step(title='搜索 获取 搜索的关键字是否存在')
     def is_search_keyword_exist(self, keyword):
-        xpath = By.XPATH, "//*[@resource-id= 'com.yunmall.lc:id/keyayout']/*/*[@text = '%s']"  % keyword
+        xpath = By.XPATH, "//*[@resource-id= 'com.yunmall.lc:id/keyayout']/*/*[@text = '%s']" % keyword
         return self.is_feature_exist(xpath)
 
     # 判断搜索的历史记录是否为空

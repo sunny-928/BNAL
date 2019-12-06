@@ -46,3 +46,5 @@ class TestSearch(object):
         self.page.search.click_delete()
         # 断言
         assert self.page.search.is_toast_exist("暂无搜索历史")
+        # 断言 搜索记录是否为空
+        assert self.page.search.is_search_record_empty()
